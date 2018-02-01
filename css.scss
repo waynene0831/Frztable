@@ -1,0 +1,369 @@
+// -------------------------------------
+// Susy Import
+// -------------------------------------
+//@import "susy";
+// -------------------------------------
+// Core Mixins
+// -------------------------------------
+@import "../core/core/mixins";
+// -------------------------------------
+// Variables Import
+// -------------------------------------
+// 載入全域變數
+@import "../core/core/variables";
+// -------------------------------------
+// Components / Modules Setting
+// -------------------------------------
+// 請輸入您的ClassName
+$classname: '18.Magaele jQuery Plugin';
+// -------------------------------------
+// 您的CSS Code
+// -------------------------------------
+//以下範例可以刪除，改為您自已的CSS Code
+
+    *{
+    margin:0;
+    padding:0;
+   }
+    .gray{
+         height:50px;
+	       border:solid 1px #e2e2e2; 
+	       background:#eaedf2;
+	       font-size:1em;
+	       text-align:center;
+	       line-height:50px;
+	       color:#666666;
+	       min-width:90px;
+         line-height:50px;
+         ord-break: break-all;
+      }
+
+    .lightgray{
+        height:50px;
+	      border:solid 1px #e2e2e2; 
+	      background:#f1f1f1;
+	      font-size:1em;
+	      text-align:center;
+	      color:#7e7e7e;
+	      min-width:90px;
+        line-height:50px;
+        word-break: break-all;
+      }
+    .box{
+         height:50px;
+         border:solid 1px #e2e2e2; 
+         font-size:1em;
+         text-align:center;
+         color:#444444;
+         min-width:90px;
+         line-height:50px;
+         cursor: pointer;
+     }
+    .box.active{
+       border:solid 1px #fe8b88 ; 
+       background:#fff9e3;
+     }
+    .HLgray{
+       background:#f7f7f7;
+     }
+    .trwrap{
+    width:100%;
+    }
+    .secBox.active{
+       border:solid 1px #fe8b88 ; 
+       background:#fff9e3;
+     }
+    .tdwrap1{
+     min-width:90px;
+     height:100%;
+    }
+     .sectd1{
+      height:100%;
+      min-width:92px;
+   }
+    .clearfix{
+
+    }
+    .longbox{
+     min-width:630px;
+     height:50px;
+
+     }
+     .floatL{
+    float: left;
+   }
+
+     .clearfix:after {
+     clear: both;
+      }
+
+     .marginauto{
+     margin: 0 auto;}
+
+     .txtwrap{
+     position: relative;
+     line-height:25px;
+     height:50px;
+     background:#f1f1f1;
+    font-size:1em;
+    text-align:center;
+    min-width:90px;
+     }
+     .gotxt{
+     position:absolute;
+     bottom: 5px;
+     left: 5px;
+     }
+     .backtxt{
+       position:absolute;
+       right: 5px;
+       top: 5px;
+      }
+   .slide_btn {
+      color: #ffffff;
+      cursor: pointer;
+      z-index: 3;
+      padding: 14px 5px;
+      background:#000000;
+      opacity: 0.4;
+      display:none;
+  }
+  .tablewrap{
+    }
+    .box>span{
+      font-size:0.9em;
+      color:#999999;
+      font-weight:bold;
+     }
+     .graytxt>span{
+       color:#a9a9a9;
+       font-size:1em;
+    }
+
+    .seclgraybox{
+      border:solid 1px #e2e2e2;
+      height:70px; 
+       min-width:85px;
+
+  }
+    .seclongbox{
+     height:70px;
+     min-width:600px;
+     }
+  .secgraybox{
+   height:70px; 
+   border:solid 1px #e2e2e2;
+   min-width:110px; 
+    cursor: pointer;
+}
+  .secgray{
+  background:#eaedf2;
+  color:#444;
+
+   }
+   .seclgray{
+   background:#f1f1f1;
+ }
+  .hlorange{
+   color:#f67766;
+ }
+.grayfont{
+ padding-top:10px;
+  font-size: 1.4em;
+  font-weight: bold;}
+
+.dashtxt{
+ line-height:70px;
+ text-align: center;
+   font-size:1.2em;
+}
+
+
+.grayfontc{
+  font-size:12px;
+  font-weight:bold;
+}
+.chtxt{
+font-size:14px;
+  text-align: center;
+  line-height:50px;
+  color:#666;
+}
+.txtcenter{
+   text-align: center;
+   line-height:30px;
+   color:#444;
+}
+.boxrelative{
+ position:relative;
+}
+.plane{
+  position:absolute;
+  right:3px;
+  top:3px;
+  font-size:14px;
+  color:#f67766;
+}
+.cheap{
+   position:absolute;
+    color:#fe9522;
+    left:20px;
+    top:-15px;
+    font-size:12px;
+}
+.orangrtr{
+  width: 0;
+height: 0;
+border-style: solid;
+border-width: 20px 20px 0 0;
+border-color: #fe9422 transparent transparent transparent;
+position:absolute;
+left:0;
+top:0;
+}
+.dot1{
+  margin:0 5px;
+  display: inline-block;
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background: #fff;
+  border:solid 1px #444;
+}
+.dot1.active{
+  background:#fe9522;
+}
+.dotwarp2{
+ position:absolute;
+   right:-161px;
+   top:0;
+  width:100%;
+  min-width:100px;
+}
+.dot2{
+  margin:0 5px;
+  display: inline-block;
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  background: #fff;
+  border:solid 1px #444;
+}
+.dot2.active{
+  background:#fe9522;
+}
+.dotwarp2{
+ position:absolute;
+   right:-161px;
+   top:0;
+  width:100%;
+  min-width:100px;
+}
+
+
+
+  @media screen and (max-width:376px) {
+     .gray,.box,.lightgray,.txtwrap{
+       height:55px;
+      }
+     .lightgray{
+       min-width:50px;
+      line-height: 17px;
+      padding-top: 14px;
+     }
+     .txtwrap{
+       min-width:50px;}
+
+   .tdwrap1{
+     min-width:50px;
+    }
+
+   .hiddenTd{
+   box-sizing: border-box;
+   max-width:270px; 
+   overflow: hidden;
+   height:440px;
+
+    }
+
+   .slide_btn {
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 3;
+    padding: 14px 5px;
+    background:#000000;
+    opacity: 0.4;
+    display:block;
+    }
+
+  .slide_left{
+  position:absolute;
+  left:45px;
+  top:50%;
+    }
+
+  .slide_right{
+  position:absolute;
+  left:290px;
+  top:50%;
+   }
+
+    .longbox{
+     height:55px;
+     }
+     .lightgray{
+     font-size:12px;
+   }
+  .btnRelative{
+   position:relative;
+   height:440px;
+   }
+
+   .hiddenTd{
+   position:relative;
+ }
+  .slideTd{
+  position:absolute;
+  left:0;
+  top:0;
+   }
+   .transition{
+   transition:.5s;
+ }
+  .sechiddenTd{
+    box-sizing: border-box;
+    max-width:220px; 
+    overflow: hidden;
+    height:280px;
+    position:relative;
+}
+  .secslideTd{
+  position:absolute;
+  left:0;
+  top:0;
+   }
+  .secbtnRelative{
+   position:relative;
+   height:280px;
+ }
+  .secslide_left{
+  position:absolute;
+  left:79px;
+  top:50%;
+    }
+
+  .secslide_right{
+  position:absolute;
+  left:272px;
+  top:50%;
+   }
+  }
+  @media screen and (min-width: $screen-tablet) {
+     
+  }
+  @media screen and (min-width: $screen-desktop) {
+    
+  }
+  @media screen and (min-width: $screen-lg-desktop) {
+    
+  }
