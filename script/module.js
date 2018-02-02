@@ -13,7 +13,6 @@ class Module {
 
 
 	init () {
-
 			$('.box').on('click',function(){
     		$('td .box').removeClass('active');
     		$('td .box').removeClass('HLgray');
@@ -23,7 +22,6 @@ class Module {
             $(this).addClass('active');
             $(this).siblings().addClass('HLgray');
     		;})
-
 
            //-----------------------------------第二個
            $('.secBox').on('click',function(){
