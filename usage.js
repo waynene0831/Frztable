@@ -9,7 +9,7 @@ $('.frzTable.default').frzTable({
     speed: .3, // [number] 
     // 每次點擊儲存格時會執行此callback，並帶入所點擊的儲存格jquery物件
     whenClick: function($element) {
-        // console.log($element)
+        console.log($element)
     }
 })
 $('.frzTable.rel').frzTable({
@@ -18,6 +18,6 @@ $('.frzTable.rel').frzTable({
         show: 2
     },
     whenClick: function($element) {
-        // console.log($element)
+        console.log($element)
     }
 })

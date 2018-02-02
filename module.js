@@ -238,14 +238,14 @@ class Module {
 
 
 
-		var move1 = this.option.count.slide;
-		var show1 =this.option.count.show;
-        console.log(this);
-        console.log(this.ele);
-        console.log(this.$ele);
+		var move = this.option.count.slide;
+		var show =this.option.count.show;
+        // console.log(this);
+        // console.log(this.ele);
+        // console.log(this.$ele);
 
-        console.log(show1);
-        console.log(move1);
+        // console.log(show);
+        // console.log(move);
        
 
 
@@ -255,11 +255,11 @@ class Module {
 	    var slideCount=7;
         var slidershowWdith = 270;
         var width;
-        var slidemove = slidershowWdith/show1;
+        var slidemove = slidershowWdith/show;
 
-        console.log(slidemove);
+        // console.log(slidemove);
 
-        var boxsize = slidershowWdith/show1+'px';
+        var boxsize = slidershowWdith/show+'px';
 
         	if (window.matchMedia("(max-width: 376px)").matches){
             this.$ele.find('.box').css('min-width', boxsize);
@@ -271,7 +271,6 @@ class Module {
 
 	      width=0-slidemove*slide+"px";
            $(".slideTd").css("left", width);
-
           if(slide<5){
 	      $("#dotwrap1 .dot1").removeClass('active');
 	      $("#dotwrap1 .dot1").eq(slide).addClass('active');}
@@ -281,12 +280,12 @@ class Module {
            //slide<5
 	  this.$ele.find('.goRight').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(slide+move1<=slideCount-show1){
-	        slide=slide+move1;
+	   		if(slide+move<=slideCount-show){
+	        slide=slide+move;
 	        goSlider(slide);
 	      }
           else{
-            slide=slideCount-show1;
+            slide=slideCount-show;
             goSlider(slide);
            }
 	  }
@@ -294,16 +293,15 @@ class Module {
        
         this.$ele.find('.goLeft').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		console.log(slide);
-	   		if(slide-move1>=0){
-	        slide=slide-move1;
+	   		if(slide-move>=0){
+	        slide=slide-move;
 	        goSlider(slide);
 	      } else{
             slide=0;
             goSlider(slide);
 	      }
 	     }
-	      console.log(slide);
+
 	    });
 
 
@@ -317,9 +315,9 @@ class Module {
 	    var secslideCount=5;
 	    var secslidershowWdith = 220;
         var secwidth;
-        var secslidemove = secslidershowWdith/show1;
+        var secslidemove = secslidershowWdith/show;
 
-        var secboxsize = secslidershowWdith/show1+'px';
+        var secboxsize = secslidershowWdith/show+'px';
 
         if (window.matchMedia("(max-width: 376px)").matches){
             this.$ele.find('.secgraybox').css('min-width', secboxsize);
@@ -338,24 +336,24 @@ class Module {
 
 	  this.$ele.find('.secgoRight').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(secslide+move1<=secslideCount-show1){
-	        secslide=secslide+move1;
+	   		if(secslide+move<=secslideCount-show){
+	        secslide=secslide+move;
 	        secgoSlider(secslide);
 	      }}
 	       else{
-            secslide=secslide-show1;
+            secslide=secslide-show;
             goSlider(secslide);
            }
 	    });
        
       this.$ele.find('.secgoLeft').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(secslide-move1>=0){
-	        secslide=secslide-move1;
+	   		if(secslide-move>=0){
+	        secslide=secslide-move;
 	        secgoSlider(secslide);
 	      }else{
             slide=0;
-            goSlider(secslide);
+            secgoSlider(secslide);
 	      }
 
 	  }
