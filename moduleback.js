@@ -13,8 +13,17 @@ class Module {
 
 
 	init () {
+		var move1 = this.option.count.slide;
+		var show1 =this.option.count.show;
+        console.log(this);
+        console.log(this.ele);
+        console.log(this.$ele);
 
-			$('.box').on('click',function(){
+        console.log(show1);
+        console.log(move1);
+       
+         
+    	$('.box').on('click',function(){
     		$('td .box').removeClass('active');
     		$('td .box').removeClass('HLgray');
     		var t = $(this).index();
@@ -24,9 +33,64 @@ class Module {
             $(this).siblings().addClass('HLgray');
     		;})
 
+        var slide=0;
+	    var sliderWidth=90;
+	    var slideCount=7;
+        var slidershowWdith = 270;
+        var width;
+        var slidemove = slidershowWdith/show1;
 
-           //-----------------------------------第二個
-           $('.secBox').on('click',function(){
+        var boxsize = slidershowWdith/show1+'px';
+        	if (window.matchMedia("(max-width: 376px)").matches){
+            $('.box').css('min-width', boxsize);
+            $('.gray').css('min-width', boxsize)
+        	}
+    //-----------------------
+	    function goSlider(slide){
+	    	console.log(slidemove);
+	      width=0-slidemove*slide+"px";
+           $(".slideTd").css("left", width);
+
+          if(slide<5){
+	      $("#dotwrap1 .dot1").removeClass('active');
+	      $("#dotwrap1 .dot1").eq(slide).addClass('active');}
+	    }
+        
+
+           //slide<5
+	   $('.goRight').on('click',function(){
+	   	if (window.matchMedia("(max-width: 376px)").matches){
+	   		if(slide+move1<=slideCount-show1){
+	        slide=slide+move1;
+	        goSlider(slide);
+	      }
+          else{
+            slide=slideCount-show1;
+            goSlider(slide);
+           }
+	  }
+	    });
+       
+        $('.goLeft').on('click',function(){
+	   	if (window.matchMedia("(max-width: 376px)").matches){
+	   		console.log(slide);
+	   		if(slide-move1>=0){
+	        slide=slide-move1;
+	        goSlider(slide);
+	      } else{
+            slide=0;
+            goSlider(slide);
+	      }
+	     }
+	      console.log(slide);
+	    });
+
+
+ 
+
+
+        //-----------------------------------第二個
+        $('.secBox').on('click',function(){
         	//--清除原本的特效
         	$('.arrive').find('.plane').removeClass('planeblock'); 
         	$('.sectd1').find('.plane').removeClass('planeblock'); 
@@ -51,98 +115,14 @@ class Module {
     		;})
  
 
-
-
-
-
-
-
-		var move1 = this.option.count.slide;
-		var show1 =this.option.count.show;
-        console.log(this);
-        console.log(this.ele);
-        console.log(this.$ele);
-
-        console.log(show1);
-        console.log(move1);
-       
-
-
-
-        var slide=0;
-	    var sliderWidth=90;
-	    var slideCount=7;
-        var slidershowWdith = 270;
-        var width;
-        var slidemove = slidershowWdith/show1;
-
-        console.log(slidemove);
-
-        var boxsize = slidershowWdith/show1+'px';
-
-        	if (window.matchMedia("(max-width: 376px)").matches){
-            this.$ele.find('.box').css('min-width', boxsize);
-            this.$ele.find('.gray').css('min-width', boxsize)
-          
-        	}
-    //-----------------------
-	    function goSlider(slide){
-
-	      width=0-slidemove*slide+"px";
-           $(".slideTd").css("left", width);
-
-          if(slide<5){
-	      $("#dotwrap1 .dot1").removeClass('active');
-	      $("#dotwrap1 .dot1").eq(slide).addClass('active');}
-	    }
-        
-
-           //slide<5
-	  this.$ele.find('.goRight').on('click',function(){
-	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(slide+move1<=slideCount-show1){
-	        slide=slide+move1;
-	        goSlider(slide);
-	      }
-          else{
-            slide=slideCount-show1;
-            goSlider(slide);
-           }
-	  }
-	    });
-       
-        this.$ele.find('.goLeft').on('click',function(){
-	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		console.log(slide);
-	   		if(slide-move1>=0){
-	        slide=slide-move1;
-	        goSlider(slide);
-	      } else{
-            slide=0;
-            goSlider(slide);
-	      }
-	     }
-	      console.log(slide);
-	    });
-
-
- 
-//////////////////////////////////////////////////////////////
-
-       
-
         var secslide=0;
-	    var secsliderWidth=110;
+	    var secsliderWidth=110
 	    var secslideCount=5;
 	    var secslidershowWdith = 220;
         var secwidth;
         var secslidemove = secslidershowWdith/show1;
 
         var secboxsize = secslidershowWdith/show1+'px';
-
-        if (window.matchMedia("(max-width: 376px)").matches){
-            this.$ele.find('.secgraybox').css('min-width', secboxsize);
-        	}
 
         function secgoSlider(secslide){
           //滑動特效
@@ -155,9 +135,9 @@ class Module {
 	    }
 
 
-	  this.$ele.find('.secgoRight').on('click',function(){
+	   $('.secgoRight').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(secslide+move1<=secslideCount-show1){
+	   		if(secslide+move1<secslideCount-show1){
 	        secslide=secslide+move1;
 	        secgoSlider(secslide);
 	      }}
@@ -167,7 +147,7 @@ class Module {
            }
 	    });
        
-      this.$ele.find('.secgoLeft').on('click',function(){
+       $('.secgoLeft').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
 	   		if(secslide-move1>=0){
 	        secslide=secslide-move1;

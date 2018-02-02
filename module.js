@@ -181,19 +181,7 @@ module.exports = g;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Module; });
 const ModuleName = 'frzTable';
 const ModuleDefaults =  {
-	count: {
-        // M版時每次點擊往前往後移動幾格儲存格
-        slide: 1, // [number] 
-        // M版時一個畫面show幾格儲存格
-        show: 3 // [number] 
-    },
-    // 設定花多久時間移動完成
-    speed: .3, // [number] 
-    // 每次點擊儲存格時會執行此callback，並帶入所點擊的儲存格jquery物件
-    whenClick: function($element) {
-        // console.log($element)
-    }
-
+  
 };
 const ModuleReturns = [];
 
@@ -201,120 +189,178 @@ class Module {
 	constructor ( ele, options ) {
 		this.ele = ele;
 		this.$ele = $(ele);
-		this.option = options;
-		 
+		this.option = options;   
 	}
 
 
 	init () {
-		console.log(this.option.count.slide);
-		var move1 = this.option.count.slide;
-		var show1 =this.option.count.show;
-		console.log(move1);
-		$("#dotwrap1 .dot1").eq(0).addClass('active');
-		$("#dotwrap2 .dot2").eq(0).addClass('active');
 
-         
-    	$('.box').on('click',function(){
+			$('.box').on('click',function(){
     		$('td .box').removeClass('active');
     		$('td .box').removeClass('HLgray');
     		var t = $(this).index();
-            console.log(t); 
             $('.longbox').each(function(){
             $(this).children('.box:eq(' + t + ')').addClass('HLgray')});
             $(this).addClass('active');
             $(this).siblings().addClass('HLgray');
     		;})
 
+
+           //-----------------------------------第二個
+           $('.secBox').on('click',function(){
+        	//--清除原本的特效
+        	$('.arrive').find('.plane').removeClass('planeblock'); 
+        	$('.sectd1').find('.plane').removeClass('planeblock'); 
+    		$('td .secBox').removeClass('active');
+    		$('.secgray').removeClass('active');
+    		$('.setoffbox').removeClass('active');
+
+    		//--hightlight特效
+    		$(this).addClass('active');
+    		var s = $(this).index();
+
+            //--飛機 目的地
+            $(this).addClass('active');
+            $('.arrive').children('.secgray:eq(' + s + ') ').addClass('active'); 
+            $('.arrive').children('.arrivebox:eq(' + s + ')').find('.plane').addClass('planeblock'); 
+            //--飛機 出發地
+            var sa =$(this).parents('.seclongbox').index()-1;
+            console.log(sa); 
+            $('.sectd1').children('.seclgray:eq(' +sa+ ')').addClass('active');
+            $('.sectd1').children('.seclgray:eq(' +sa+ ')').find('.plane').addClass('planeblock');
+
+    		;})
+ 
+
+
+
+
+
+
+
+		var move1 = this.option.count.slide;
+		var show1 =this.option.count.show;
+        console.log(this);
+        console.log(this.ele);
+        console.log(this.$ele);
+
+        console.log(show1);
+        console.log(move1);
+       
+
+
+
         var slide=0;
 	    var sliderWidth=90;
 	    var slideCount=7;
+        var slidershowWdith = 270;
         var width;
-	     //設定一個變數吃去this.option.count.slide
-	     //設定this.option.count.show  
-	     //append li 決定可右滑的數量 加dot
-	     //show
-	     //270px/show
-	     //sliderWidth*slide
+        var slidemove = slidershowWdith/show1;
 
+        console.log(slidemove);
+
+        var boxsize = slidershowWdith/show1+'px';
+
+        	if (window.matchMedia("(max-width: 376px)").matches){
+            this.$ele.find('.box').css('min-width', boxsize);
+            this.$ele.find('.gray').css('min-width', boxsize)
+          
+        	}
     //-----------------------
-
 	    function goSlider(slide){
-	      width=0-sliderWidth*slide*move1+"px";
-	      console.log(width);
-	      $(".slideTd").css("left", width);
+
+	      width=0-slidemove*slide+"px";
+           $(".slideTd").css("left", width);
 
           if(slide<5){
 	      $("#dotwrap1 .dot1").removeClass('active');
 	      $("#dotwrap1 .dot1").eq(slide).addClass('active');}
-	      //slide判斷不超過slidecount-slideshow
 	    }
+        
 
-
-	   $('.goRight').on('click',function(){
+           //slide<5
+	  this.$ele.find('.goRight').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(slide+1<slideCount-2){
-	        slide=slide+1;
+	   		if(slide+move1<=slideCount-show1){
+	        slide=slide+move1;
 	        goSlider(slide);
-	        console.log(slide);
-	      }}
+	      }
+          else{
+            slide=slideCount-show1;
+            goSlider(slide);
+           }
+	  }
 	    });
        
-       	   $('.goLeft').on('click',function(){
+        this.$ele.find('.goLeft').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(slide-1>=0){
-	        slide=slide-1;
+	   		console.log(slide);
+	   		if(slide-move1>=0){
+	        slide=slide-move1;
 	        goSlider(slide);
-	      }}
+	      } else{
+            slide=0;
+            goSlider(slide);
+	      }
+	     }
+	      console.log(slide);
 	    });
-        //-----------------------------------第二個
-        $('.secBox').on('click',function(){
-    		$('td .secBox').removeClass('active');
-    		$('.secgray').removeClass('hlorange');
-    		$('.setoffbox').removeClass('hlorange');
-    		$(this).addClass('active');
-    		var s = $(this).index();
-            // console.log(s); 
-            $(this).addClass('active');
-            $('.arrive').children('.secgray:eq(' + s + ')').addClass('hlorange');    
 
-            var sa =$(this).parents('.seclongbox').index()-1;
-            console.log(sa); 
-            $('.sectd1').children('.seclgray:eq(' +sa+ ')').addClass('hlorange');
-            
-    		;})
-         
+
+ 
+//////////////////////////////////////////////////////////////
+
+       
+
         var secslide=0;
 	    var secsliderWidth=110;
 	    var secslideCount=5;
+	    var secslidershowWdith = 220;
         var secwidth;
+        var secslidemove = secslidershowWdith/show1;
+
+        var secboxsize = secslidershowWdith/show1+'px';
+
+        if (window.matchMedia("(max-width: 376px)").matches){
+            this.$ele.find('.secgraybox').css('min-width', secboxsize);
+        	}
+
         function secgoSlider(secslide){
-	      secwidth=0-secsliderWidth*secslide+"px";
+          //滑動特效
+	      secwidth=0-secslidemove*secslide+"px";
 	      $(".secslideTd").css("left", secwidth);
+	      //點點特效
 	      if(slide<4){
 	      $("#dotwrap2 .dot2").removeClass('active');
 	      $("#dotwrap2 .dot2").eq(secslide).addClass('active');}
 	    }
 
 
-	   $('.secgoRight').on('click',function(){
+	  this.$ele.find('.secgoRight').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(secslide+1<secslideCount-1){
-	        secslide=secslide+1;
+	   		if(secslide+move1<=secslideCount-show1){
+	        secslide=secslide+move1;
 	        secgoSlider(secslide);
-	        console.log(secslide);
 	      }}
+	       else{
+            secslide=secslide-show1;
+            goSlider(secslide);
+           }
 	    });
        
-       	   $('.secgoLeft').on('click',function(){
+      this.$ele.find('.secgoLeft').on('click',function(){
 	   	if (window.matchMedia("(max-width: 376px)").matches){
-	   		if(secslide-1>=0){
-	        secslide=secslide-1;
+	   		if(secslide-move1>=0){
+	        secslide=secslide-move1;
 	        secgoSlider(secslide);
-	      }}
+	      }else{
+            slide=0;
+            goSlider(secslide);
+	      }
+
+	  }
 	    });
-        
-    
+
 
     	
 			return this;
@@ -325,7 +371,7 @@ class Module {
 			return this;
 			}
         
-     
+            
 
 
 
