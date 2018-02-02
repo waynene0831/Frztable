@@ -154,7 +154,6 @@ $classname: '18.Magaele jQuery Plugin';
     .seclongbox{
      height:70px;
      min-width:1100px;
-
      }
   .secgraybox{
    height:70px; 
@@ -292,8 +291,8 @@ top:0;
   @media screen and (max-width:376px) {
      .gray,.box,.lightgray,.txtwrap{
        height:55px;
-       font-size:1em;
         word-break: break-all;
+        font-size:1em;
       }
       .box>span{
         display: none;
@@ -328,7 +327,10 @@ top:0;
     opacity: 0.4;
     display:block;
     }
-
+ .seclongbox{
+     height:70px;
+     min-width:1100px;
+     }
   .slide_left{
   position:absolute;
   left:45px;
@@ -384,6 +386,9 @@ top:0;
   left:79px;
   top:50%;
     }
+
+  .longbox {
+    min-width: 1890px;}
 
   .secslide_right{
   position:absolute;

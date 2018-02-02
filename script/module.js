@@ -80,15 +80,14 @@ class Module {
 
         	if (window.matchMedia("(max-width: 376px)").matches){
             this.$ele.find('.box').css('min-width', boxsize);
-            this.$ele.find('.gray').css('min-width', boxsize)
-          
+            this.$ele.find('.gray').css('min-width', boxsize);
         	}
     //-----------------------
 	    function goSlider(slide){
 
 	      width=0-slidemove*slide+"px";
            $(".slideTd").css("left", width);
-          if(slide<5){
+          if(slide<=slideCount-show){
 	      $("#dotwrap1 .dot1").removeClass('active');
 	      $("#dotwrap1 .dot1").eq(slide).addClass('active');}
 	    }
@@ -100,6 +99,7 @@ class Module {
 	   		if(slide+move<=slideCount-show){
 	        slide=slide+move;
 	        goSlider(slide);
+	        console.log(slide);
 	      }
           else{
             slide=slideCount-show;
@@ -123,7 +123,7 @@ class Module {
 
 
  
-//////////////////////////////////////////////////////////////
+/////////
 
        
 
@@ -145,7 +145,7 @@ class Module {
 	      secwidth=0-secslidemove*secslide+"px";
 	      $(".secslideTd").css("left", secwidth);
 	      //點點特效
-	      if(slide<4){
+	      if(slide<=slideCount-show){
 	      $("#dotwrap2 .dot2").removeClass('active');
 	      $("#dotwrap2 .dot2").eq(secslide).addClass('active');}
 	    }
