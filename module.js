@@ -214,9 +214,11 @@ class Module {
     		$('.secgray').removeClass('active');
     		$('.setoffbox').removeClass('active');  
     		$(this).addClass('active');
+
     		var s = $(this).index();
             $('.arrive').children('.secgray:eq(' + s + ') ').addClass('active'); 
             $('.arrive').children('.arrivebox:eq(' + s + ')').find('.plane').addClass('planeblock'); 
+            
             var sa =$(this).parents('.seclongbox').index()-1;
             $('.sectd1').children('.seclgray:eq(' +sa+ ')').addClass('active');
             $('.sectd1').children('.seclgray:eq(' +sa+ ')').find('.plane').addClass('planeblock');     
