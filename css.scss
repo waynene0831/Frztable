@@ -34,8 +34,9 @@ $classname: '18.Magaele jQuery Plugin';
 	       line-height:50px;
 	       color:#666666;
 	       min-width:90px;
-         line-height:50px;
-         ord-break: break-all;
+         line-height:21px;
+         word-break: break-all;
+         padding-top: 5px;
       }
 
     .lightgray{
@@ -99,7 +100,7 @@ $classname: '18.Magaele jQuery Plugin';
      .dotwrap1{
           position: absolute;
     top: -27px;
-    right: -25px;
+    right: 2px;
       width: 200px;
      }
      .marginauto{
@@ -195,7 +196,7 @@ color:#f67766;
   font-weight:bold;
 }
 .chtxt{
-font-size:14px;
+font-size:12px;
   text-align: center;
   line-height:50px;
   color:#666;
@@ -231,14 +232,14 @@ font-size:14px;
 }
 .orangrtr{
   width: 0;
-height: 0;
-border-style: solid;
-border-width: 20px 20px 0 0;
-border-color: #fe9422 transparent transparent transparent;
-position:absolute;
-left:0;
-top:0;
-}
+  height: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: #fe9422 transparent transparent transparent;
+  position:absolute;
+  left:0;
+  top:0;
+  }
 .dot1{
   margin:0 5px;
   display: inline-block;
@@ -253,7 +254,7 @@ top:0;
 }
 .dotwrap2{
        position: absolute;
-    right: -67px;
+    right: 0;
     top: -25px;
   min-width:200px;
   z-index:20;
@@ -277,11 +278,11 @@ top:0;
   width:100%;
   min-width:100px;
 }
-.green{
+.green-top{
  color: #4eab8f;
  position: absolute;
- right: 10px;
- top: -17px;
+ right: 2px;
+ top: -6px;
  font-weight:bold;
  font-size:0.8em; 
 }
@@ -292,7 +293,7 @@ top:0;
      .gray,.box,.lightgray,.txtwrap{
        height:55px;
         word-break: break-all;
-        font-size:1em;
+        font-size:0.7em;
       }
       .box>span{
         display: none;
@@ -342,7 +343,9 @@ top:0;
   left:290px;
   top:50%;
    }
-
+    .txtcenter{
+      font-size: 0.7em;
+    }
     .longbox{
      height:55px;
      }
