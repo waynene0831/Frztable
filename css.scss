@@ -134,8 +134,7 @@ $classname: '18.Magaele jQuery Plugin';
       opacity: 0.4;
       display:none;
   }
-  .tablewrap{
-    }
+
     .box>span{
       font-size:0.9em;
       color:#999999;
@@ -286,14 +285,15 @@ font-size:12px;
  font-weight:bold;
  font-size:0.8em; 
 }
-
-
-
+ .seclongbox{
+     height:70px;
+     min-width:675px;
+     }
   @media screen and (max-width:376px) {
      .gray,.box,.lightgray,.txtwrap{
        height:55px;
         word-break: break-all;
-        font-size:0.7em;
+        font-size:0.8em;
       }
       .box>span{
         display: none;
@@ -316,7 +316,6 @@ font-size:12px;
    max-width:270px; 
    overflow: hidden;
    height:440px;
-
     }
 
    .slide_btn {
@@ -352,6 +351,7 @@ font-size:12px;
      .lightgray{
      font-size:12px;
    }
+
   .btnRelative{
    position:relative;
    height:440px;

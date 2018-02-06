@@ -9,11 +9,12 @@ class Module {
 		this.ele = ele;
 		this.$ele = $(ele);
 		this.option = options;   
+
 	}
 
 
 	init () {
-
+            const  that=this;
 			this.$ele.find('.box').on('click',function(){
     		$('td .box').removeClass('active');
     		$('td .box').removeClass('HLgray');
@@ -25,7 +26,7 @@ class Module {
             console.log(this);
     		;})
 
-          this.$ele.find('.secBox').on('click',function(){
+            this.$ele.find('.secBox').on('click',function(){
           	console.log(this);
         	$('.arrive').find('.plane').removeClass('planeblock'); 
         	$('.sectd1').find('.plane').removeClass('planeblock'); 
@@ -47,30 +48,45 @@ class Module {
 
 
 
-       //--
-		var move = this.option.count.slide;
-		var show =this.option.count.show;
-		var speed = this.option.speed;
-        // console.log(this);
-        // console.log(this.ele);
-        // console.log(this.$ele);
+			var move = this.option.count.slide;
+			var show =this.option.count.show;
+			var speed = this.option.speed;
+	        // console.log(this);
+	        // console.log(this.ele);
+	        // console.log(this.$ele);
 
-        // console.log(speed);
-        // console.log(show);
-        // console.log(move);      
+	        // console.log(speed);
+	        // console.log(show);
+	        // console.log(move);      
+            
 
-        var slide=0;
-	    var sliderWidth=90;
-	    var slideCount=7;
-        var slidershowWdith = 270;
-        var width;
-        var slidemove = slidershowWdith/show;
-        var boxsize = slidershowWdith/show+'px';
-           
-        	if (window.matchMedia("(max-width: 376px)").matches){
-            this.$ele.find('.box').css('min-width', boxsize);
-            this.$ele.find('.gray').css('min-width', boxsize);
+	        var slide=0;
+		    var sliderWidth=90;
+		    var slideCount=7;
+	        var slidershowWdith = 270;
+	        var width;
+	        var slidemove = slidershowWdith/show;
+	        var boxsize = slidershowWdith/show+'px';
+
+	        if (window.matchMedia("(max-width: 376px)").matches){
+           	that.$ele.find('.box').css('min-width', boxsize);
+            that.$ele.find('.gray').css('min-width', boxsize);
         	}
+
+			$(document).ready(function(){
+			$(window).resize(function() {
+			if (window.matchMedia("(min-width: 377px)").matches){
+			$('.box').removeAttr("style");
+			$('.gray').removeAttr("style");
+			;}
+			else if(window.matchMedia("(max-width: 376px)").matches){
+			that.$ele.find('.box').css('min-width', boxsize);
+            that.$ele.find('.gray').css('min-width', boxsize);	
+			}
+			});
+			});
+        	
+
     //-----------------------
 	    function goSlider(slide){
 	      width=0-slidemove*slide+"px";
@@ -116,10 +132,24 @@ class Module {
         var secwidth;
         var secslidemove = secslidershowWdith/show;
         var secboxsize = secslidershowWdith/show+'px';
-
+        
         if (window.matchMedia("(max-width: 376px)").matches){
-            this.$ele.find('.secgraybox').css('min-width', secboxsize);
+            that.$ele.find('.secgraybox').css('min-width', secboxsize);
         	}
+         
+         $(document).ready(function(){
+			$(window).resize(function() {
+			if (window.matchMedia("(min-width: 377px)").matches){
+			$('.secgraybox').removeAttr("style");
+			;}
+			else if(window.matchMedia("(max-width: 376px)").matches){
+			that.$ele.find('.secgraybox').css('min-width', secboxsize);
+			}
+			});
+			});
+
+
+
 
         function secgoSlider(secslide){
 	      secwidth=0-secslidemove*secslide+"px";
