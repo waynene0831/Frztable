@@ -363,7 +363,7 @@ class Module {
             secgoSlider(secslide);
 	      }
 	     }
-	    }); 	
+	    }); 	7
 			return this;
 			}
 
